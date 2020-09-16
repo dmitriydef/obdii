@@ -15,7 +15,7 @@ def main():
         response = adapter.send('01%2.2x' % pid)
         data['%2.2x' % pid] = response
 
-    print json.dumps(data, sort_keys=True, indent=4)
+    print(json.dumps(data, sort_keys=True, indent=4))
 
 
 

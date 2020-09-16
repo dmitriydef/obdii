@@ -50,9 +50,9 @@ class MockElm327(object):
             m = self.COMMAND_RECEIVED.search(self.in_data)
             if m:
                 command = m.group(1).replace(' ', '').upper()
-                #print "old in_data = " + repr(self.in_data)
+                #print("old in_data = " + repr(self.in_data))
                 self.in_data = self.COMMAND_RECEIVED.sub('', self.in_data)
-                #print "new in_data = " + repr(self.in_data)
+                #print("new in_data = " + repr(self.in_data))
 
                 if command == 'ATH0':
                     self._set_h0()
@@ -153,4 +153,4 @@ class ElmFullTests(unittest.TestCase):
 
         data = self.elm.send_obdii_command([0x09, 0x02])
         assert data == expected_response
-        print ''.join(chr(i) for i in data[0x7e8][3:])
+        print(''.join(chr(i) for i in data[0x7e8][3:]))

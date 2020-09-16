@@ -13,7 +13,7 @@ def main():
         rpm = obd.get_current_engine_rpm()
         ect = obd.get_current_ect()
 
-        print "RPM: %d rpm, ECT: %d C" % (rpm, ect)
+        print("RPM: %d rpm, ECT: %d C" % (rpm, ect))
         time.sleep(1)
 
 

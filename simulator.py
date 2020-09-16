@@ -9,7 +9,7 @@ def main():
         count = 4096
         while count >= 4096:
             write_data = elm.read(4096)
-            print write_data.replace('\r', '\n'),
+            print(write_data.replace('\r', '\n')),
             count = len(write_data)
 
 

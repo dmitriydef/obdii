@@ -43,7 +43,7 @@ class Elm(object):
 
     def _check_reset(self, response):
         if response != "ELM327 v1.3a":
-            print 'received: ' + response
+            print('received: ' + response)
             raise Exception
 
 
@@ -63,9 +63,9 @@ class Elm(object):
 
         while not self.PROMPT_REGEX.search(data):
             data = data + self.interface.read(1)
-            #print data
+            #print(data)
 
-        print 'data read: ' + data.replace('\r', '\n')
+        print('data read: ' + data.replace('\r', '\n'))
         return self.RESPONSE_REGEX.search(data).group(1)
 
 
@@ -77,7 +77,7 @@ class Elm(object):
         text = self.send(''.join(cmd)).strip()
 
         if text.find('\n') != -1:
-            raise NotImplementedError, "multiline response not yet supported"
+            raise NotImplementedError
 
         data = []
 
@@ -88,8 +88,8 @@ class Elm(object):
 
 
     def get_device_info(self):
-        print 'Device Description: ' + self.send_control_command('@1')
-        print 'Device Identifier: ' + self.send_control_command('@2')
+        print('Device Description: ' + self.send_control_command('@1'))
+        print('Device Identifier: ' + self.send_control_command('@2'))
 
     def read_voltage(self):
         response = self.send_control_command('RV')
